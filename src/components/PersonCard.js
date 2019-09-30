@@ -1,38 +1,36 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image';
+import { Link } from 'react-router-dom';
 
 function PersonCard(props) {
-
-
-    function handleClick(e, p) {
-       // e.preventDefault();
-        console.log(e);
-      }
-
     return (
 
 
 <Card style={{ height: '9rem', width: '24rem'}}>
-<button href="#" to={} onClick={() => handleClick(props)} style={{padding: 'none', textAlign: 'left', borderColor:'#fff', background: '#fff'}}>
 
+<Link to={{
+  pathname: '/persondetail',
+  state: {
+    person: props.person
+  }}}
+  style={{textDecoration: 'none', color: "#212529"}}
+  >
   <Image roundedCircle src={props.person.picture.thumbnail} style={{height:'60px', width:'60px', position: 'absolute',
     left: '10px', top: '40px'}}/>
   <Card.Body style={{padding: '1rem',  paddingLeft: '75px' }}>
     <Card.Title>{props.person.name.first + ' '+ props.person.name.last}</Card.Title>
     <Card.Text>
-    {props.person.email}<br />
-    {props.person.location.street.number + ' '+ 
-                props.person.location.street.name}<br />
-  
-            {props.person.location.city + ', '+ 
-                props.person.location.state + ', '+
-                props.person.location.postcode}
+        {props.person.email}<br />
+        {props.person.location.street.number + ' '+ 
+        props.person.location.street.name}<br />
 
+        {props.person.location.city + ', '+ 
+        props.person.location.state + ', '+
+        props.person.location.postcode}
     </Card.Text>
-
   </Card.Body>
-  </button>
+  </Link>
 </Card>
 
 

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PersonCard from '../../components/PersonCard.js'
 import Header from '../../components/Header.js'
-import Container from 'react-bootstrap/Container'
-import CardGroup from 'react-bootstrap/CardGroup'
 const Persons = () => {
 
     const [hasError, setErrors] = useState(false);

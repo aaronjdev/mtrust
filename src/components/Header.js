@@ -1,16 +1,19 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
+import {Link} from 'react-router-dom';
 
 function Header(props) {
+
+    let link;
+    if(props.title === "Detail"){
+        link = <Link to={"/"} style={{textDecoration: "none", color: '#fff', paddingRight: "5px"}}>&#x2190; </Link>
+    }else{
+        link = "";
+    }
     return (
-        <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">{props.title}</Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-        </Nav>
+        <Navbar variant="dark" style={{backgroundColor: '#00ad00'}}>
+          {link}
+        <Navbar.Brand>{props.title}</Navbar.Brand>
       </Navbar>
     );
 }
