@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import PersonCard from '../../components/PersonCard.js'
-import Header from '../../components/Header.js'
-const Persons = () => {
+import PersonCard from '../../components/PersonCard.js';
+import Header from '../../components/Header.js';
+import fetchPeople from '../../services/dataServices.js';
 
+const Persons = () => {
     const [hasError, setErrors] = useState(false);
     const [people, setPeople] = useState({});
     let content = "";
-    //let people = [];
   
     async function fetchData() {
       const res = await fetch("https://randomuser.me/api/?results=30&nat=US");
@@ -20,14 +20,9 @@ const Persons = () => {
       fetchData()
     }, []);
 
-
-
     if (people.results){
         content = people.results.map((person) =>
-    
-        <PersonCard key={person.login.uuid} person={person} 
-         />
-  
+        <PersonCard key={person.login.uuid} person={person} />
       ); 
     }
 

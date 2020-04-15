@@ -35,12 +35,9 @@ function PersonDetail(props) {
                         <Card.Body>
                             <Card.Subtitle className="mb-2 text-muted">Address</Card.Subtitle>
                             <Card.Text>
-                            {person.location.street.number + ' '+ 
-                person.location.street.name}<br />
-  
-            {person.location.city + ', '+ 
-                person.location.state + ', '+
-                person.location.postcode}
+                            { `${person.location.street.number} ${person.location.street.name}`}<br />
+                            {`${person.location.city}, 
+                                ${person.location.state}  ${person.location.postcode}`}
                             </Card.Text>
                         </Card.Body>
                         </Card>

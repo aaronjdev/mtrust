@@ -9,11 +9,12 @@ function PersonCard(props) {
 
 <Card style={{ height: '9rem', width: '24rem'}}>
 
-<Link to={{
-  pathname: '/persondetail',
-  state: {
-    person: props.person
-  }}}
+<Link to={
+  {
+    pathname: '/persondetail',
+    state: { person: props.person }
+  }
+}
   style={{textDecoration: 'none', color: "#212529"}}
   >
   <Image roundedCircle src={props.person.picture.thumbnail} style={{height:'60px', width:'60px', position: 'absolute',
@@ -22,21 +23,16 @@ function PersonCard(props) {
     <Card.Title>{props.person.name.first + ' '+ props.person.name.last}</Card.Title>
     <Card.Text>
         {props.person.email}<br />
-        {props.person.location.street.number + ' '+ 
-        props.person.location.street.name}<br />
+        {` ${props.person.location.street.number}  
+        ${props.person.location.street.name} `}<br />
 
-        {props.person.location.city + ', '+ 
-        props.person.location.state + ', '+
-        props.person.location.postcode}
+        { `${props.person.location.city}, 
+        ${props.person.location.state} 
+        ${props.person.location.postcode}`} 
     </Card.Text>
   </Card.Body>
   </Link>
 </Card>
-
-
-
-
-
 
     );
 }
